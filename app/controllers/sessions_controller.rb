@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	skip_before_action :require_user_logged_in!, only: [:new, :create]
 	def new
 
 	end
@@ -6,7 +7,7 @@ class SessionsController < ApplicationController
 	def create
 		@user = User.find_by(email: params[:email])
 		if @user.present? && @user.authenticate(params[:password])
-			session[:user_id] = user.id
+			session[:user_id] = @user.id
 			redirect_to root_path, notice: 'Logged in successfully'
 		else
 			flash.now[:alert] = 'Invalid email or password'
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
 
 	def destroy
       session[:user_id] = nil
-      redirect_to :new, notice: 'Logged Out'
+      redirect_to sign_in_path, notice: 'Logged Out'
     end
 
 end
