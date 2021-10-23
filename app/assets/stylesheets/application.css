@@ -14,8 +14,13 @@
  *= require_self
  */
  .white, .white:hover, .white:focus, .white:active{
-     color: aliceblue;
+     color: white;
+     text-decoration: none;
  }
+ .black, .black:hover, .black:focus, .black:active{
+  color: black;
+  text-decoration: none;
+}
  .center {
     margin: auto;
     width: 50%;
@@ -30,6 +35,36 @@
   }
   .center-heading {
     margin: auto;
+    padding: auto;
     text-align: center;
     width: 50%;
   }
+  .center-70{
+    margin: auto;
+    width: 70%;
+    border: 1px solid lightsalmon;
+    padding: 10px;
+  }
+  .plus {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    
+    background:
+      linear-gradient(#fff,#fff),
+      linear-gradient(#fff,#fff),
+      #000;
+    background-position:center;
+    background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+  }
+  .radius {
+    border-radius:50%;
+  }
+  .item-custom {
+    background-color: rgb(255, 229, 157);
+    border: 1px dotted rgb(162, 255, 201);
+}
+.main_body{
+  background-color: rgba(188, 247, 222, 0.651);
+}

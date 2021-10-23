@@ -1,9 +1,4 @@
  <% if get_current_user %>
- 	<div class="mx-auto pb-4" style="width: 200px;">
-	<button type="button" class="btn btn-secondary position-relative">
-  		<%= link_to "New Article", new_article_path, class: 'text-decoration-none white' %> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+ <span class="visually-hidden">unread messages</span></span>
-	</button>
-	</div>
 	<div class="row row-cols-1 row-cols-md-3 g-4 p-3">
 	  <% @articles.each do |article| %>
 		  <% unless article.archived? %>
@@ -14,7 +9,7 @@
 					<p class="card-text"><%= article.body %></p>
 				</div>
 				<div class="card-footer">
-					<small class="text-muted">Last updated <%= article.updated_at %></small>
+					<small class="text-muted">Last updated <%= article.updated_at.to_date.strftime('%d-%m-%Y') %></small>
 				</div>
 				</div>
 			</div>
@@ -22,9 +17,4 @@
 	  <% end %>
 	  </div>
   <br><br>  
-  <% else %>
-  <br><br>
-	    <%= link_to 'Sign Up', sign_up_path %>
-	    or
-	    <%= link_to 'Login', sign_in_path %>
   <% end %>

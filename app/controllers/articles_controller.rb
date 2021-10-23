@@ -30,8 +30,10 @@ class ArticlesController < ApplicationController
    		 @article = Article.find(params[:id])
 
     	if @article.update(article_params)
+			flash[:info] = 'Artical Updated successfully !'
      		 redirect_to @article
     	else
+			flash.now[:danger] = 'There is an error while updating  the article'
      		 render :edit
     	end
   	end
