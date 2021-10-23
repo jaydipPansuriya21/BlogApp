@@ -1,21 +1,26 @@
  <% if get_current_user %>
-    Logged in as: <%= get_current_user.email %><br>
-    <%= link_to 'Edit Password', reset_password_path %>
-    <%= button_to 'Logout', sign_out_path, method: :delete %>
-	<br><br>
-	<h1>Articles</h1>
-	Our blog has <%= Article.public_count %> articles and counting!
-	<ul>
+ 	<div class="mx-auto pb-4" style="width: 200px;">
+	<button type="button" class="btn btn-secondary position-relative">
+  		<%= link_to "New Article", new_article_path, class: 'text-decoration-none white' %> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+ <span class="visually-hidden">unread messages</span></span>
+	</button>
+	</div>
+	<div class="row row-cols-1 row-cols-md-3 g-4 p-3">
 	  <% @articles.each do |article| %>
 		  <% unless article.archived? %>
-		    <li>
-		    	<%= link_to article.title,article_path(article) %>
-		    </li>
+		    <div class="col">
+				<div class="card h-100">
+				<div class="card-body">
+					<h5 class="card-title"><%= article.title %></h5>
+					<p class="card-text"><%= article.body %></p>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated <%= article.updated_at %></small>
+				</div>
+				</div>
+			</div>
 		  <% end %>
 	  <% end %>
-	</ul>
-
-	<%= link_to "New Article", new_article_path %>
+	  </div>
   <br><br>  
   <% else %>
   <br><br>

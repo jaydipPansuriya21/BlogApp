@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ .white, .white:hover, .white:focus, .white:active{
+     color: aliceblue;
+ }
+ .center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid lightskyblue;
+    padding: 10px;
+  }
+  .center-flash {
+    margin: auto;
+    text-align: center;
+    border: 3px solid black;
+    width: 50%;
+  }
+  .center-heading {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+  }

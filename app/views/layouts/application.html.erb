@@ -11,8 +11,26 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <% if get_current_user %>
+  <ul class="nav justify-content-end pe-2 pt-2 pb-2">
+    <li class="nav-item">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= get_current_user.email %>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to 'Change Password ', reset_password_path(get_current_user), class: 'dropdown-item'%></li>
+          <li><%= link_to 'Logout ', sign_out_path, class: 'dropdown-item', method: 'delete' %></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <% end %>
+  <% flash.each do |name,message|%>
+    <div class="alert alert-<%=name%> center-flash" role="alert">
+        <%= message %>
+    </div>
+  <% end %>
+  <%= yield %>
   </body>
 </html>

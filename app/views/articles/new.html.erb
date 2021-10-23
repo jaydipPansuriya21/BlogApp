@@ -1,7 +1,3 @@
-<h1>New Article</h1>
-<% flash.each do |name,message|%>
-    <%= name %>
-    <%= message %>
-<% end %>
+<h1 class = "center-heading p-3">New Article</h1>
 
 <%= render "form", temp: @article %>
