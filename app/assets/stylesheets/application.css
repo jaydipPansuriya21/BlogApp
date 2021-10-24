@@ -20,6 +20,7 @@
 .white:active {
     color: white;
     text-decoration: none;
+    list-style-type: none;
 }
 
 .black,
@@ -27,6 +28,7 @@
 .black:focus,
 .black:active {
     color: black;
+    list-style-type: none;
     text-decoration: none;
 }
 
