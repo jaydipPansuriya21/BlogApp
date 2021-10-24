@@ -1,7 +1,7 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   
   <div class="w-auto p-3">
-    <%= form.text_area :body ,class: "w-auto p-3" %>
+    <%= form.text_area :body ,class: "w-auto p-3", rows: 3, cols: 100%>
   </div>
 
   <div>
