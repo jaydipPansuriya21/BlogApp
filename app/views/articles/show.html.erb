@@ -2,6 +2,7 @@
 <h1><%= @article.title %></h1>
 
 <p><%= @article.body %></p>
+<input type='hidden' id='article_id' name="article_id" value='<%= @article.id %>'  />
 <div>
   <ul class = "list-group list-group-horizontal black">
   <li><%= link_to "Edit Article", edit_article_path(@article), class: 'list-group-item' %></li>
@@ -14,15 +15,16 @@
 
 <div class="center-70">
 <h4>Comments</h2>
+<div id="comments_partial">
 <%= render @article.comments %>
-
+</div>
 <p>
-  <button class="btn-sm" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <button class="btn-sm" id="comment_btn" >
    Add comments
   </button>
 </p>
-<div class="collapse w-auto p-3" id="collapseExample">
-  <div class="card card-body">
+<div class="w-auto p-3">
+  <div class="card card-body hide" id='add_comment'>
     <%= render 'comments/form' %>
   </div>
 </div>

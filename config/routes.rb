@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'articles#index'
+  get 'articles/test', to: 'articles#test'
   resources :articles do
     resources :comments
   end
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   
   get 'reset_password', to: 'passwords#edit'
   patch 'reset_password', to: 'passwords#update'
+
+ 
 
   delete 'sign_out', to: 'sessions#destroy'
 end

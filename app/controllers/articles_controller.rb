@@ -43,6 +43,13 @@ class ArticlesController < ApplicationController
    	 	redirect_to root_path
  	end
 
+	def test
+		respond_to do |format|
+			format.json {render :json => Article.all}
+			format.xml {render :xml => Article.all}
+		end
+	end
+
 	private
 	    def article_params
 	      params.require(:article).permit(:title, :body, :status)
