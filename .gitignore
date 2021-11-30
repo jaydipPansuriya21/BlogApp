@@ -25,7 +25,8 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-
+/node_modules
+/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
