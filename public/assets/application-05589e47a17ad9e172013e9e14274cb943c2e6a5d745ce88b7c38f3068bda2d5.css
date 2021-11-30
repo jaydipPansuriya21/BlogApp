@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+.white,
+.white:hover,
+.white:focus,
+.white:active {
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.black,
+.black:hover,
+.black:focus,
+.black:active {
+    color: black;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid lightskyblue;
+    padding: 10px;
+}
+
+.center-flash {
+    margin: auto;
+    text-align: center;
+    border: 3px solid black;
+    width: 50%;
+}
+
+.center-heading {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    width: 50%;
+}
+
+.center-70 {
+    margin: auto;
+    width: 70%;
+    border: 1px solid lightsalmon;
+    padding: 10px;
+}
+
+.plus {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #000;
+    background-position: center;
+    background-size: 50% 2px, 2px 50%;
+    /*thickness = 2px, length = 50% (25px)*/
+    background-repeat: no-repeat;
+}
+
+.radius {
+    border-radius: 50%;
+}
+
+.item-custom {
+    background-color: rgb(255, 229, 157);
+    border: 1px dotted rgb(162, 255, 201);
+}
+
+.main_body {
+    background-color: rgba(188, 247, 222, 0.651);
+}
+
+.right {
+    position: absolute;
+    right: 0px;
+    padding: 0px 10px;
+}
