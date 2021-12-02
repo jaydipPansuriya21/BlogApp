@@ -89,3 +89,7 @@
     right: 0px;
     padding: 0px 10px;
 }
+
+.input-textbox {
+    width: 100% !important;
+}
