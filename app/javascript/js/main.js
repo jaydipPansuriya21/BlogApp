@@ -35,7 +35,7 @@ function getCommentDetails() {
 
 if (publish_btn) {
     publish_btn.addEventListener('click', (e) => {
-        console.log("button clicked");
+        // console.log("button clicked");
         // var xhr = new XMLHttpRequest();
         // xhr.open("POST", window.location.href + '/comments', true);
         // xhr.setRequestHeader("Content-Type", "application/json");
@@ -49,7 +49,7 @@ if (publish_btn) {
 
         // }
         // xhr.send(getCommentDetails());
-        alert(getCommentDetails());
+        // alert(getCommentDetails());
         jQuery.ajax({
             url: window.location.href + '/comments',
             type: 'post',
