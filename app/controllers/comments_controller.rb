@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
-		puts " adasdaf"
-		params.permit(:article_id,:commenter, :body)
+		comment_params
 		commenter = params[:commenter]
 		body = params[:body]
 		@article = Article.find(params[:article_id])
@@ -25,8 +24,8 @@ class CommentsController < ApplicationController
 			format.js {render :create}
 		end
 	end
-	# private
-    # def comment_params
-    #   params.permit(:commenter, :body)
-    # end
+	private
+    def comment_params
+      params.permit(:commenter, :body, :article_id)
+    end
 end
