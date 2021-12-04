@@ -46,7 +46,6 @@ group :development do
   gem 'spring'
 
   gem 'mysql2' 
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :test do
