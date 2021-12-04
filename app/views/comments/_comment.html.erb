@@ -1,6 +1,9 @@
 <p>
   <strong>Commenter:</strong>
-  <%= comment.commenter %>
+  <% user = User.find(comment.commenter.to_i).name 
+     user ||= "Unknown"   
+  %>
+  <%= user %>
 </p>
 
 <p>
@@ -8,7 +11,7 @@
   <%= comment.body %>
 </p>
 <p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
+  <%= link_to 'Destroy Comment', [comment.article, comment], remote: true, 
               method: :delete,
               data: { confirm: "Are you sure?" } %>
 </p>

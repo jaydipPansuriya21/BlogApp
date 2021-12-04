@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_161259) do
+ActiveRecord::Schema.define(version: 2021_10_24_132545) do
 
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.string "title"
@@ -26,8 +26,15 @@ ActiveRecord::Schema.define(version: 2021_10_07_161259) do
     t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "users", charset: "utf8", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   add_foreign_key "comments", "articles"

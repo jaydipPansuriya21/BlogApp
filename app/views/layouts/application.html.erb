@@ -5,12 +5,45 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag "application" %>
+    <meta name="viewport" content="width=1024">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="main_body">
+  <% if get_current_user %>
+  <ul class="nav justify-content-end pe-2 pt-2 pb-2 ">
+    <li class="nav-item item-custom">
+    <div class="p-2">
+      New Article
+      <%= link_to "", new_article_path, class: ' black plus radius' %> 
+	  </div>
+    </li>
+    <li class="nav-item item-custom">
+      <div class = "btn">
+       <%= link_to 'HOME', root_path, class: 'black' %>
+      </div>
+    </li>
+    <li class="nav-item item-custom">
+      <div class = "btn">
+       <%= link_to 'Change Password ', reset_password_path(get_current_user), class: 'black' %>
+      </div>
+    </li>
+    <li class="nav-item item-custom">
+      <div class = "btn">
+       <%= link_to 'Logout ', sign_out_path, method: 'delete', class: 'black'  %>
+      </div>
+    </li>
+  </ul>
+  <% end %>
+  <% flash.each do |name,message|%>
+    <div class="alert alert-<%=name%> center-flash" role="alert">
+        <%= message %>
+    </div>
+  <% end %>
+  <%= yield %>
+   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
