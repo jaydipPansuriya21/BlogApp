@@ -9,15 +9,15 @@ class ArticlesController < ApplicationController
 
 	def new
 	    @article = Article.new
-	    @article.title = "Hello"
 	end
 
 	def create
 	    @article = Article.new(article_params)
 	    if @article.save
-	    	redirect_to @article
+			flash[:info] = 'New Artical created successfully !'
+	    	redirect_to root_path
 	    else
-	    	flash.now[:notice] = 'There is an error creating the article'
+	    	flash.now[:danger] = 'There is an error creating the article'
 	      	render :new
 	    end
 	end
@@ -30,8 +30,10 @@ class ArticlesController < ApplicationController
    		 @article = Article.find(params[:id])
 
     	if @article.update(article_params)
+			flash[:info] = 'Artical Updated successfully !'
      		 redirect_to @article
     	else
+			flash.now[:danger] = 'There is an error while updating  the article'
      		 render :edit
     	end
   	end
@@ -40,6 +42,13 @@ class ArticlesController < ApplicationController
    	 	@article.destroy
    	 	redirect_to root_path
  	end
+
+	def test
+		respond_to do |format|
+			format.json {render :json => Article.all}
+			format.xml {render :xml => Article.all}
+		end
+	end
 
 	private
 	    def article_params
