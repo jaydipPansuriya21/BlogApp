@@ -1,0 +1,26 @@
+<div class="back">
+  <div class="div-center">
+
+    <div>
+    <h1 >Sign In</h1>
+    <div class="form-group row">
+      <%= form_with url: sign_in_path do |f| %>
+        <div class="col-xs-4 mb-3">
+        <%= f.label 'Email Address' %><br>
+        <%= f.text_field :email, id: 'email', :class => "form-control" %>
+        </div>
+        <div class="col-xs-4 mb-3">
+        <%= f.label 'Password'%><br>
+        <%= f.password_field :password, id: 'password', :class => "form-control" %>
+        </div>
+        <div class="col-xs-4">
+        <%= f.submit 'Log In', :class => 'btn-secondary me-3'  %>
+        <%= link_to 'New User ? ', sign_up_path ,:class => 'link-secondary mr-3' %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+
+  </div>
+
+</div>

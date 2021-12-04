@@ -1,29 +1,27 @@
-<%= form_with model: temp do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% temp.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+<div class= "center">
+  <%= form_with model: temp, class: 'row g-3' do |form| %>
+    <div class="col-md-6">
+      <%= form.label :title, class: 'form-label' %><br>
+      <%= form.text_field :title, class: 'form-control' %>
+      <% temp.errors.full_messages_for(:title).each do |message| %>
+        <div class= "text-danger"><%= message %></div>
+      <% end %>
+    </div>
+    <div class = "col-12">
+      <%= form.label :body, class: 'form-label' %><br>
+      <%= form.text_area :body, class: 'form-control' %>
+      <% temp.errors.full_messages_for(:body).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+    <%= form.label :status, class: 'form-label' %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public', class: 'form-select' %>
+    </div>
 
-  <br><br>
-  
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-    <% temp.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-  <%= form.label :status %><br>
-  <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-  </div>
-
-  
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
