@@ -17,6 +17,9 @@
         <%= f.submit 'Log In', :class => 'btn-secondary me-3'  %>
         <%= link_to 'New User ? ', sign_up_path ,:class => 'link-secondary mr-3' %>
         </div>
+        <div class="col-xs-4">
+        <%= link_to "Use Google Account for Sign-In/Up", '/auth/google_oauth2',method: :post, :class => 'link-secondary mr-3' %>
+         </div>
       <% end %>
     </div>
     </div>
