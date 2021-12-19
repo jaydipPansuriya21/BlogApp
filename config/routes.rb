@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'reset_password', to: 'passwords#edit'
   patch 'reset_password', to: 'passwords#update'
 
- 
+  get '/auth/:provider/callback' => 'sessions#omniauth'
 
   delete 'sign_out', to: 'sessions#destroy'
 end
