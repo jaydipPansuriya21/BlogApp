@@ -1,11 +1,5 @@
 
-name: CI
-
-on:
-  push:
-    branches: [ github_workflow ]
-  workflow_dispatch:
-
+name: Rspec
 jobs:
   build:
     runs-on: ubuntu-latest
