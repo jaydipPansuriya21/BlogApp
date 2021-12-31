@@ -20,17 +20,16 @@ let publish_btn = document.getElementById('publish_comment');
 function getCommentDetails() {
     let comment_text = document.getElementById('comment_text').value;
 
-    // let data = {
-    //     "body": comment_text,
-    //     "commenter": document.getElementById('current_user_id').value,
-    //     "article_id": document.getElementById('article_id').value
-    // }
+    let data = {};
+    data["body"] = comment_text;
+    data["commenter"] = document.getElementById('current_user_id').value;
+    data["article_id"] = document.getElementById('article_id').value;
 
-    // return data;
-    let body = comment_text;
-    let commenter = document.getElementById('current_user_id').value;
-    let article_id = document.getElementById('article_id').value;
-    return `body=${body}&commenter=${commenter}&article_id=${article_id}`
+    return data;
+    // let body = comment_text;
+    // let commenter = document.getElementById('current_user_id').value;
+    // let article_id = document.getElementById('article_id').value;
+    // return `body=${body}&commenter=${commenter}&article_id=${article_id}`
 }
 
 if (publish_btn) {
@@ -49,7 +48,6 @@ if (publish_btn) {
 
         // }
         // xhr.send(getCommentDetails());
-        // alert(getCommentDetails());
         jQuery.ajax({
             url: window.location.href + '/comments',
             type: 'post',
