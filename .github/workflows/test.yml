@@ -14,8 +14,7 @@ jobs:
           MYSQL_HOST: 127.0.0.1
           MYSQL_DB: blog_test
           MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_PASSWORD: 
+          MYSQL_PASSWORD: 121212
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
