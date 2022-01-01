@@ -25,8 +25,8 @@ jobs:
       - name: install mysql client    
         run: sudo apt-get install libmysqlclient-dev
 
-      # - name: start mysql client  
-      #   run: sudo service mysql start
+      - name: start mysql client  
+        run: sudo service mysql start
 
       - name: Run bundle install
         run: |
