@@ -37,6 +37,10 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_bot', '~> 4.8', '>= 4.8.2'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -50,14 +54,6 @@ group :development do
   gem 'spring'
 
   gem 'mysql2' 
-end
-
-group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
 end
 
 group :production do

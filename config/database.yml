@@ -9,9 +9,9 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: alskdj
+  password: 121212
   host: 127.0.0.1
-  port: 3307
+  port: 3306
 development:
   <<: *default
   database: blog_development
