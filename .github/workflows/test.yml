@@ -16,9 +16,6 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 3.x.x
-      
-      - name: Install MySQL
-        run: sudo apt install mysql-server libmysqlclient-dev
 
       - name: Run bundle install
         run: |
