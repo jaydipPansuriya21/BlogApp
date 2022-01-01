@@ -11,8 +11,7 @@ jobs:
         ports:
           - 3306:3306
         env:
-          MYSQL_ROOT_PASSWORD: root
-          pa:   
+          MYSQL_ROOT_PASSWORD: root 
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
