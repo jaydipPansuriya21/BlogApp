@@ -9,18 +9,36 @@ jobs:
       mysql:
         image: mysql:5.7
         ports:
-          - 3306
-
+          - 3306:3306
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: blog_test
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_PASSWORD:
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.0 
+      
+      - name: install mysql client    
+        run: sudo apt-get install libmysqlclient-dev
+
+      - name: start mysql client  
+        run: sudo service mysql start
 
       - name: Run bundle install
         run: |
           gem install bundler
           bundle install
+      - name: create database    
+        env:
+          RAILS_ENV: test
+          DATABASE_PORT: 3306
+        run: |
+          bundle exec rails db:reset
+
       - name: Run rspec
         run: rspec .    
 
