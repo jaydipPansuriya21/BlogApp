@@ -16,4 +16,14 @@ RSpec.describe 'Example of comman rspec helper methods' do
     it '-10 not equal to 0' do
         expect(-10).not_to be == 0
     end
+
+    it 'name should be equal to jaydip' do
+        name = 'Jaydip'
+        expect(name).to eq('Jaydip')
+    end
+
+    it 'name should not be equal to Jaydip' do
+        name = 'jaydip'
+        expect(name).not_to eq('Jaydip')
+    end
 end
