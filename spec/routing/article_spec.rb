@@ -5,7 +5,7 @@ RSpec.describe '/article routes' do
         aggregate_failures do
             expect(get '/articles').to route_to(controller: 'articles', action: 'index')
             expect(get '/articles').to route_to('articles#index')
-            expect(get '/articles?pages=3').to route_to('articles#index', pages: 3)
+            expect(get '/articles?pages=3').to route_to('articles#index', pages: '3')
         end
     end
 end
