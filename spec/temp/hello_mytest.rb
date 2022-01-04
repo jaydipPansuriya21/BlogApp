@@ -26,4 +26,11 @@ RSpec.describe 'Example of comman rspec helper methods' do
         name = 'jaydip'
         expect(name).not_to eq('Jaydip')
     end
+
+    # include HelperMethods
+    # we can remove "config.include HelperMethods" from rails_helper.rb file but for that we need
+    # uncomment include HelperMethods from above
+    it '3+6 should equal to 9' do
+        expect(sum(3, 6)).to eq(9)
+    end
 end
