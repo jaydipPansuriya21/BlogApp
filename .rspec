@@ -1,3 +1,4 @@
 --format doc
 --require spec_helper
 --color
+--pattern "**/*_{mytest,yourtest,spec}.rb"
