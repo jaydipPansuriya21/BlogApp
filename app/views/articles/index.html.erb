@@ -1,3 +1,6 @@
+<div id="current_customer" class="form-popup" style="display:none;">
+
+</div>
  <% if get_current_user %>
 	<div class="row row-cols-1 row-cols-md-3 g-4 p-3">
 	  <% @articles.each do |article| %>
@@ -10,7 +13,8 @@
 				</div>
 				<div class="card-footer">
 					<small class="text-muted">Last updated <%= article.updated_at.to_date.strftime('%d-%m-%Y') %></small>
-					<%= link_to 'open', article_path(article), class: "right"%>		
+					<%= link_to 'open', article_path(article), class: "right"%>
+					<%= link_to 'popup', articles_check_path(article, id: article.id, format: :js), remote: true %>		
 				</div>
 				</div>
 			</div>

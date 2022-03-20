@@ -1,4 +1,10 @@
 class ArticlesController < ApplicationController
+	def check 
+		@article = Article.find(params[:id])
+		respond_to do |format|
+			format.js {render layout: false} # Add this line to you respond_to block
+		end
+	end
 	def index
 	    @articles = Article.all
 	end
