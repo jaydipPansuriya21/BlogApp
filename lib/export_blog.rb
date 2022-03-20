@@ -8,6 +8,7 @@ class ExportBlog
     end  
 
     def export_blogs
+        # this method will create excel file with data in it and return path of that file.
         file_name = "public/blogs_#{Time.now.to_i}.xls"
         blogs_worksheet = @workbook.create_worksheet :name => "Blogs"
         custom_formate = Spreadsheet::Format.new(weight: :bold, color: :blue)
