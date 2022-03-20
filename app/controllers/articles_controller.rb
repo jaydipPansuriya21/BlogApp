@@ -1,3 +1,4 @@
+require 'export_blog'
 class ArticlesController < ApplicationController
 	def index
 	    @articles = Article.all
