@@ -1,6 +1,7 @@
 class ExportBlog
     require 'spreadsheet'
-        
+    # Documentation : https://github.com/zdavatz/spreadsheet/blob/master/GUIDE.md
+
     def initialize
         @workbook = Spreadsheet::Workbook.new
         @blogs = Article.all
@@ -10,9 +11,9 @@ class ExportBlog
         file_name = "public/blogs_#{Time.now.to_i}.xls"
         blogs_worksheet = @workbook.create_worksheet :name => "Blogs"
         custom_formate = Spreadsheet::Format.new(weight: :bold, color: :blue)
-        blogs_worksheet.row(0).default_format = custom_formate
         heading = ['title', 'body', 'status']
         blogs_worksheet << heading
+        blogs_worksheet.last_row.default_format = custom_formate
         @blogs.each do |blog|
             blog_data = []
             blog_data.push(
@@ -22,7 +23,8 @@ class ExportBlog
             )
             blogs_worksheet << blog_data
         end
-        blogs_worksheet.write file_name
+        @workbook.write file_name
+        file_name
     end
 
 end
