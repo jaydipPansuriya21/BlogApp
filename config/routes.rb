@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'articles#index'
   get 'articles/test', to: 'articles#test'
+  get 'articles/export_blogs', to: "articles#export_blogs"
   resources :articles do
     resources :comments
   end
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   patch 'reset_password', to: 'passwords#update'
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
+
+  
 
   delete 'sign_out', to: 'sessions#destroy'
 end

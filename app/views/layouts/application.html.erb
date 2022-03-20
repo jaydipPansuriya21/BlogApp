@@ -13,23 +13,28 @@
   <body class="main_body">
   <% if get_current_user %>
   <ul class="nav justify-content-end pe-2 pt-2 pb-2 ">
-    <li class="nav-item item-custom">
-    <div class="p-2">
+    <li class="nav-item item-custom btn btn-primary">
+    <div class="p-2 black">
       New Article
-      <%= link_to "", new_article_path, class: ' black plus radius' %> 
+      <%= link_to "", new_article_path, class: 'plus radius' %> 
 	  </div>
     </li>
-    <li class="nav-item item-custom">
+    <li class="nav-item item-custom btn btn-primary">
       <div class = "btn">
+       <%= link_to 'Export Blogs', articles_export_blogs_path, class: 'black' %>
+      </div>
+    </li>
+    <li class="nav-item item-custom btn btn-primary">
+      <div class = "btn ">
        <%= link_to 'HOME', root_path, class: 'black' %>
       </div>
     </li>
-    <li class="nav-item item-custom">
+    <li class="nav-item item-custom btn btn-primary">
       <div class = "btn">
        <%= link_to 'Change Password ', reset_password_path(get_current_user), class: 'black' %>
       </div>
     </li>
-    <li class="nav-item item-custom">
+    <li class="nav-item item-custom btn btn-primary">
       <div class = "btn">
        <%= link_to 'Logout ', sign_out_path, method: 'delete', class: 'black'  %>
       </div>

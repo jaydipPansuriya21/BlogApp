@@ -1,3 +1,4 @@
+require 'export_blog'
 class ArticlesController < ApplicationController
 	def index
 	    @articles = Article.all
@@ -48,6 +49,17 @@ class ArticlesController < ApplicationController
 			format.json {render :json => Article.all}
 			format.xml {render :xml => Article.all}
 		end
+	end
+
+	def export_blogs 
+		export_blog = ExportBlog.new
+		file_location = export_blog.export_blogs
+		# in file_location path our excel file is ready, now we want to download it by using  
+		# send_file method.
+		send_file file_location,
+				:disposition => 'attachment',
+				:type => "application/csv",
+				:x_sendfile => true
 	end
 
 	private
